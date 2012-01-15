@@ -81,6 +81,9 @@
   Options include
   :close-timeout --- How long after close/term will the socket linger
                      before dying?
+  :subscribe-all --- Sets up your SUB socket to hear all the passed
+                     messages. Useful since there's no good way to
+                     publish with a particular tag yet.
   "
   ([] (socket :pair))
   ([pattern-flag]
@@ -94,6 +97,10 @@
        ;; set LINGER
        (when (:close-timeout options)
          (.setLinger sock (:close-timeout options)))
+
+       ;; set SUBSCRIBE=""
+       (when (:subscribe-all options)
+         (.subscribe sock (byte-array 0)))
 
        ;; Return the socket
        sock)))
