@@ -5,4 +5,4 @@
                  [cascalog/carbonite "1.0.5"]]
   :dev-dependencies [[native-deps "1.0.5"]]
   :native-dependencies [[org.clojars.starry/jzmq-native-deps "2.0.10"]]
-  :repl-options [:init nil :caught clj-stacktrace.repl/pst+])
+  :native-path "/usr/local/lib")
