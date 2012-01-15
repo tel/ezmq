@@ -147,7 +147,7 @@
    manually. This is best for the common case of single connections
    and binds."
   [socket-specs & body]
-  (let [[[type var pattern-flag address & options] & rest] socket-specs]
+  (let [[[type var pattern-flag address & {:as options}] & rest] socket-specs]
     (if (and type var pattern-flag address)
       `(with-open [~var (doto (socket ~pattern-flag ~options)
                           ~(cond
